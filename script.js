@@ -193,6 +193,9 @@ function toolAction(action){
 
 function deleteOrBlock(del,isBlock,strQuery){
     $.post(((del)?"api/delete.php":"api/block.php"), {variable: strQuery, blockUser:((isBlock)?'1':'0')});
+    if (del){
+        $('#content').html(` `);
+    }
     showHomePage(false);
 }
 
